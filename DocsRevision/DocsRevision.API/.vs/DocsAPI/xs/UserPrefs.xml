@@ -1,15 +1,21 @@
 ﻿<Properties StartupConfiguration="{B81FBB5B-4F07-4F17-BF51-CAD71510BE57}|Default">
   <MonoDevelop.Ide.ItemProperties.DocsAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DocsAPI/Entities/Document.cs">
+    <Files>
+      <File FileName="DocsAPI/Entities/Document.cs" Line="11" Column="33" />
+      <File FileName="DocsAPI/Entities/User.cs" Line="8" Column="28" />
+      <File FileName="DocsAPI/Entities/Revision.cs" Line="8" Column="37" />
+      <File FileName="DocsAPI/Enum/EStatus.cs" Line="3" Column="2" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DocsAPI" expanded="True">
             <Node name="DocsAPI" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ValuesController.cs" selected="True" />
+              <Node name="Entities" expanded="True">
+                <Node name="Document.cs" selected="True" />
               </Node>
-              <Node name="Properties" expanded="True" />
+              <Node name="Enum" expanded="True" />
             </Node>
           </Node>
         </State>
