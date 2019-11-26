@@ -16,7 +16,7 @@ class Revision{
     
     init (
         id: String,
-        documentId:String
+        documentId:String,
         numRevision: Int,
         revisorId: String,
         revisor: User,
