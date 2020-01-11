@@ -16,6 +16,6 @@ namespace DocsAPI.Entities
         public DateTime? RevisonDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public DateTime? DeadlineDate { get; set; }
-        public bool IsObsolete { get => ExpirationDate > DateTimeOffset.Now; }
+        public bool IsObsolete { get => ð > DateTimeOffset.Now; }
     }
 }

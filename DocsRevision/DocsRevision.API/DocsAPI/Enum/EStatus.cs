@@ -7,7 +7,6 @@ namespace DocsAPI.Enum
         Pending = 1,
         Aproved = 2,
         Reproved = 3,
-        Obsolete = 4,
-        Removed = 5
+        Removed = 4
     }
 }
