@@ -1,18 +1,16 @@
 ﻿<Properties StartupConfiguration="{B81FBB5B-4F07-4F17-BF51-CAD71510BE57}|Default">
   <MonoDevelop.Ide.ItemProperties.DocsAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DocsAPI/Controllers/DocumentController.cs">
+    <Files>
+      <File FileName="DocsAPI/Controllers/UsersController.cs" Line="1" Column="1" />
+      <File FileName="DocsAPI/Controllers/DocumentController.cs" Line="90" Column="14" />
+      <File FileName="DocsAPI/Enum/EStatus.cs" Line="4" Column="17" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DocsAPI" expanded="True">
-            <Node name="DocsAPI" expanded="True">
-              <Node name="Builders" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Entities" expanded="True">
-                <Node name="Revision.cs" selected="True" />
-              </Node>
-              <Node name="Enum" expanded="True" />
-            </Node>
+            <Node name="DocsAPI" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -22,7 +20,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/eduardo_forlogic/DocsRevison/DocsRevision/DocsRevision.API/DocsAPI/Controllers/RevisionController.cs" relfile="DocsAPI/Controllers/RevisionController.cs" line="20" column="1" />
+      <Breakpoint file="/Users/eduardo_forlogic/DocsRevison/DocsRevision/DocsRevision.API/DocsAPI/Controllers/RevisionController.cs" relfile="DocsAPI/Controllers/RevisionController.cs" line="19" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

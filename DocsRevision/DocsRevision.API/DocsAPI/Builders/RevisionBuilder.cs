@@ -23,18 +23,6 @@ namespace DocsAPI.Builders
             return this;
         }
 
-        public RevisionBuilder WithAprover(User aprover)
-        {
-            _aprover = aprover;
-            return this;
-        }
-
-        public RevisionBuilder WithRevisor(User revisor)
-        {
-            _revisor = revisor;
-            return this;
-        }
-
         public Revision Build()
         {
             var revision = new Revision();
@@ -42,15 +30,9 @@ namespace DocsAPI.Builders
             var faker = new Faker();
             revision.Id = Generator.GetId(8);
             revision.DocumentId = _id;
-            revision.NumRevision = faker.Random.Int(1, 10);
-            revision.RevisorId = _revisor.Id;
-            revision.Revisor = _revisor;
-            revision.ApproverId = _aprover.Id;
-            revision.Approver = _aprover;
+            revision.NumRevision = 1;
             revision.Status = Enum.EStatus.Ok;
-            revision.RevisonDate = faker.Date.Soon();
-            revision.ExpirationDate = faker.Date.Soon();
-            revision.DeadlineDate = faker.Date.Soon();
+            revision.ExpirationDate = DateTime.Now.AddDays(60);
 
             return revision;
         }

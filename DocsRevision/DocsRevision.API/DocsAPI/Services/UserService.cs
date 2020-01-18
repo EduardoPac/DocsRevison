@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DocsAPI.Entities;
 using LiteDB;
 
@@ -11,7 +12,7 @@ namespace DocsAPI.Services
         int Delete(string id);
         IEnumerable<User> FindAll();
         User FindOne(string email);
-        int Insert(User User);
+        Task Insert(User User);
         bool Update(User User);
     }
 
@@ -37,10 +38,10 @@ namespace DocsAPI.Services
                 .Find(x => x.Email.Contains(email)).FirstOrDefault();
         }
 
-        public int Insert(User forecast)
+        public async Task Insert(User forecast)
         {
-            return _liteDb.GetCollection<User>("User")
-                .Insert(forecast);
+            await Task.Run(() => _liteDb.GetCollection<User>("User")
+                .Upsert(forecast));
         }
 
         public bool Update(User forecast)

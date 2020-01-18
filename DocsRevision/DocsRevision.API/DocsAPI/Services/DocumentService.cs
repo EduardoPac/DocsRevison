@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DocsAPI.Entities;
 using LiteDB;
 
@@ -9,10 +10,11 @@ namespace DocsAPI.Services
     public interface IDocumentService
     {
         int Delete(string id);
-        IEnumerable<Document> FindAll();
+        IEnumerable<Document> FindAll(string id);
         Document FindOne(string id);
         int Insert(Document document);
         bool Update(Document document);
+        Task InsertAll(List<Document> listDocuments);
     }
 
     public class DocumentService : IDocumentService
@@ -24,10 +26,11 @@ namespace DocsAPI.Services
             _liteDb = liteDbContext.Database;
         }
 
-        public IEnumerable<Document> FindAll()
+        public IEnumerable<Document> FindAll(string id)
         {
             var result = _liteDb.GetCollection<Document>("Document")
-                .FindAll();
+                                .Find(d => d.CreatorId == id || d.CurrentRevision.RevisorId == id);
+
             return result;
         }
 
@@ -46,13 +49,19 @@ namespace DocsAPI.Services
         public bool Update(Document document)
         {
             return _liteDb.GetCollection<Document>("Document")
-                .Update(document);
+                .Upsert(document);
         }
 
         public int Delete(string id)
         {
             return _liteDb.GetCollection<Document>("Document")
                 .Delete(x => x.Id == id);
+        }
+
+        public async Task InsertAll(List<Document> listDocuments)
+        {
+            await Task.Run(() => _liteDb.GetCollection<Document>("Document")
+               .Upsert(listDocuments));
         }
     }
 }

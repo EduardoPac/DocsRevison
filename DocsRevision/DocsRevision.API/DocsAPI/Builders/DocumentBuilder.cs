@@ -9,7 +9,6 @@ namespace DocsAPI.Builders
     public class DocumentBuilder
     {
         string _id;
-        Revision _revision;
 
         public static DocumentBuilder New()
         {
@@ -22,24 +21,20 @@ namespace DocsAPI.Builders
             return this;
         }
 
-        public DocumentBuilder WithRevision(Revision revision)
-        {
-            _revision = revision;
-            return this;
-        }
-
         public Document Build()
         {
             var document = new Document();
 
             var faker = new Faker();
             document.Id = Generator.GetId(8);
-            document.Name = faker.Person.FullName;
-            document.CreationDate = faker.Date.Soon();
+            document.Name = faker.Random.Word();
+            document.Extension = GetRandomExtension(faker.Random.Int(0, 4));
+            document.CreationDate = faker.Date.Soon(faker.Random.Int(1,15));
             document.CreatorId = _id;
-            document.Creator = UserBuilder.New().Build();
-            document.RevisionId = _revision.Id;
-            document.CurrentRevision = _revision;
+
+            var revision = RevisionBuilder.New().WithDocument(document.Id).Build();
+            document.RevisionId = revision.Id;
+            document.CurrentRevision = revision;
             
             return document;
         }
@@ -54,6 +49,12 @@ namespace DocsAPI.Builders
             }
 
             return Documents;
+        }
+
+        private string GetRandomExtension(int index)
+        {
+            string[] extension = { "doc", "png", "pdf", "ppt", "xls" };
+            return extension[index];
         }
     }
 }

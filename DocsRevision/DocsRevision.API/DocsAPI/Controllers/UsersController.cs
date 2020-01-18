@@ -7,44 +7,45 @@ using BurgerMonkeys.Tools;
 using LiteDB;
 using DocsAPI.Services;
 using Microsoft.Extensions.Logging;
+using System.Linq;
+using Bogus;
 
 namespace DocsAPI.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
     public class UsersController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IDocumentService _documentService;
         private readonly ILogger<UsersController> _logger;
 
-        public UsersController(IUserService userService, ILogger<UsersController> logger)
+        public UsersController(IUserService userService, IDocumentService documentService, ILogger<UsersController> logger)
         {
             _userService = userService;
+            _documentService = documentService;
             _logger = logger;
         }
 
         // GET: /api/users
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<User> Get(string email = "")
         {
-            var list = _userService.FindAll();
-            return list;
-        }
+            List<User> list = new List<User>();
 
-        // GET: /api/users?email=
-        [HttpGet]
-        public User Get(string email)
-        {
-            var user = _userService.FindOne(email);
-            return user;
+            if (string.IsNullOrWhiteSpace(email))
+                list = _userService.FindAll().ToList();
+            else
+                list.Add(_userService.FindOne(email));
+
+            return list;
         }
 
         //Post: /api/users?email=&name=
         [HttpPost]
-        public User Post(string email, string name)
+        public async Task Post(string email, string name)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(name))
-                return null;
+                return;
 
             var user = new User()
             {
@@ -53,12 +54,11 @@ namespace DocsAPI.Controllers
                 Name = name,
             };
 
-            var result = _userService.Insert(user);
+            //Cria uma lista de documentos para o usuario aqui
+            var listDocuments = DocumentBuilder.New().WithCreator(user.Id).BuildList(new Faker().Random.Int(1, 10));
 
-            if (result != 0)
-                return user;
-
-            return null;
+            await _userService.Insert(user);
+            await _documentService.InsertAll(listDocuments);
         }
     }
 }
