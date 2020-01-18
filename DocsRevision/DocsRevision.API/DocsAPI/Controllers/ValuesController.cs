@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-
 namespace DocsAPI.Controllers
 {
     [ApiController]

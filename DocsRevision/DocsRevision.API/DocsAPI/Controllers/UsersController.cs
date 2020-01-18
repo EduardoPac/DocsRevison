@@ -2,6 +2,11 @@
 using DocsAPI.Builders;
 using DocsAPI.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using BurgerMonkeys.Tools;
+using LiteDB;
+using DocsAPI.Services;
+using Microsoft.Extensions.Logging;
 
 namespace DocsAPI.Controllers
 {
@@ -9,16 +14,51 @@ namespace DocsAPI.Controllers
     [Route("[controller]")]
     public class UsersController : Controller
     {
+        private readonly IUserService _userService;
+        private readonly ILogger<UsersController> _logger;
+
+        public UsersController(IUserService userService, ILogger<UsersController> logger)
+        {
+            _userService = userService;
+            _logger = logger;
+        }
+
         // GET: /api/users
         [HttpGet]
         public IEnumerable<User> Get()
         {
-            var list = UserBuilder.New().BuildList(5);
+            var list = _userService.FindAll();
             return list;
         }
 
-        // POST: /api/users //Cria um usuario
+        // GET: /api/users?email=
+        [HttpGet]
+        public User Get(string email)
+        {
+            var user = _userService.FindOne(email);
+            return user;
+        }
 
-        // GET: /api/users/{email} //Pega um usuario pelo email
+        //Post: /api/users?email=&name=
+        [HttpPost]
+        public User Post(string email, string name)
+        {
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(name))
+                return null;
+
+            var user = new User()
+            {
+                Id = Generator.GetId(8),
+                Email = email,
+                Name = name,
+            };
+
+            var result = _userService.Insert(user);
+
+            if (result != 0)
+                return user;
+
+            return null;
+        }
     }
 }
