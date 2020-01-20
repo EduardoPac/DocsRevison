@@ -16,6 +16,27 @@ class DocsViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        LoadData();
+        tableView.reloadData()
+    }
+    
+    func LoadData(){
+        var document: Document
+         
+        document = Document(id: "d", name: "fee", fullName: "Fee.doc", creationDate: NSDate.now as NSDate, exte: "doc", creatorId: "fff", creatorName: "Eduardo", revisionId: "ss", revision: Revision(id: "dd", documentId: "ff", numRevision: 1, revisorId: "ff", revisor: User(id: "FF", name: "aa", email: "AD"), approverId: "SS", approver: User(id: "S", name: "Edk", email: "ddd"), status: EStatus.Ok, revisionDate: NSDate.now as NSDate, expirationDate: NSDate.now as NSDate, deadlineDate: NSDate.now as NSDate, isObsolete: false))
+         
+         dados.append(document)
+         
+         document = Document(id: "d", name: "fee", fullName: "Fee.xls", creationDate: NSDate.now as NSDate, exte: "xls", creatorId: "fff", creatorName: "Eduardo", revisionId: "ss", revision: Revision(id: "dd", documentId: "ff", numRevision: 1, revisorId: "ff", revisor: User(id: "FF", name: "aa", email: "AD"), approverId: "SS", approver: User(id: "S", name: "Edk", email: "ddd"), status: EStatus.Ok, revisionDate: NSDate.now as NSDate, expirationDate: NSDate.now as NSDate, deadlineDate: NSDate.now as NSDate, isObsolete: false))
+         
+         dados.append(document)
+        
+         document = Document(id: "d", name: "fee", fullName: "Fee.pdf", creationDate: NSDate.now as NSDate, exte: "pdf", creatorId: "fff", creatorName: "Eduardo", revisionId: "ss", revision: Revision(id: "dd", documentId: "ff", numRevision: 1, revisorId: "ff", revisor: User(id: "FF", name: "aa", email: "AD"), approverId: "SS", approver: User(id: "S", name: "Edk", email: "ddd"), status: EStatus.Ok, revisionDate: NSDate.now as NSDate, expirationDate: NSDate.now as NSDate, deadlineDate: NSDate.now as NSDate, isObsolete: false))
+                
+         dados.append(document)
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
