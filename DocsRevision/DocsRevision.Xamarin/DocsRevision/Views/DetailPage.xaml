@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocsRevision.Views.DetailPage"
+             Title="Detalhes do documento">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Margin="26">
+
+            <Image
+                   HeightRequest="90"
+                   Source="{Binding DocumentDetail.Extension}"
+                   WidthRequest="90"
+                   Margin="-16,0"
+                   HorizontalOptions="Start"/>
+
+            <Label
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="{Binding DocumentDetail.NameFull}"/>
+
+            <Label
+                    TextColor="Black"
+                    FontSize="Large"
+                    Text="{Binding DocumentDetail.CreatedInFormated}"/>
+
+            <Label
+                    TextColor="Black"
+                    FontSize="Large"
+                    Text="{Binding DocumentDetail.CreatedForFormated}"/>
+
+            <Label
+                    TextColor="Black"
+                    FontSize="Large"
+                    IsVisible="{Binding DocumentDetail.IsNotPendent}"
+                    Text="{Binding DocumentDetail.RevisorFormated}"/>
+
+            <Label
+                    TextColor="Black"
+                    FontSize="Large"
+                    Text="{Binding DocumentDetail.RevisionFormated}"/>
+
+            <Label
+                    TextColor="Black"
+                    FontSize="Large"
+                    Text="{Binding DocumentDetail.IsObsolet}"/>
+
+            <Button
+                    Margin="0,16"
+                    FontSize="Large"
+                    BackgroundColor="Blue"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    IsVisible="{Binding DocumentDetail.IsPendent}"
+                    Command="{Binding RevisionSendCommand}"
+                    Text="Solicitar Revisão"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
