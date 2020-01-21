@@ -16,6 +16,8 @@ namespace DocsRevision.ViewModel
         private readonly INavigationService _navigationService;
 
         public DelegateCommand RevisionSendCommand { get; set; }
+        public DelegateCommand AproveCommand { get; set; }
+        public DelegateCommand ReproveCommand { get; set; }
 
         Document _documentDetail;
         public Document DocumentDetail
@@ -31,8 +33,6 @@ namespace DocsRevision.ViewModel
             set => SetProperty(ref _createIN, value);
         }
 
-
-
         public DetailViewModel(
                         IPageDialogService dialogService,
                         IApiService apiService,
@@ -43,6 +43,18 @@ namespace DocsRevision.ViewModel
             _navigationService = navigationService;
 
             RevisionSendCommand = new DelegateCommand(SendRevision);
+            AproveCommand = new DelegateCommand(AproveExecute);
+            ReproveCommand = new DelegateCommand(ReproveExecute);
+        }
+
+        private async void ReproveExecute()
+        {
+            await _apiService.ReproveDocument(DocumentDetail.Id);
+        }
+
+        private async void AproveExecute()
+        {
+            await _apiService.AproveDocument(DocumentDetail.Id);
         }
 
         private async void SendRevision()

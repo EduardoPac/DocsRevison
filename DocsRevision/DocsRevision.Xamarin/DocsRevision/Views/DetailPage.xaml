@@ -59,6 +59,26 @@
                     Command="{Binding RevisionSendCommand}"
                     Text="Solicitar Revisão"/>
 
+             <Button
+                    Margin="0,2"
+                    FontSize="Large"
+                    BackgroundColor="Green"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    IsVisible="{Binding DocumentDetail.IsRevisor}"
+                    Command="{Binding AproveCommand}"
+                    Text="Aprovar"/>
+
+             <Button
+                    Margin="0,2"
+                    FontSize="Large"
+                    BackgroundColor="Red"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    IsVisible="{Binding DocumentDetail.IsRevisor}"
+                    Command="{Binding ReproveCommand}"
+                    Text="Reprovar"/>
+
 
         </StackLayout>
     </ContentPage.Content>

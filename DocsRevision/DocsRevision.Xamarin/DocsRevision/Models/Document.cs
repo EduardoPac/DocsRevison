@@ -24,5 +24,6 @@ namespace DocsRevision.Models
         public string IsObsolet { get => CurrentRevision.IsObsolete ? "Obsoleto: Sim" : "Obsoleto: Não"; }
         public bool IsPendent { get => CurrentRevision.Status == Enum.EStatus.Pending ? false : true; }
         public bool IsNotPendent => !IsPendent;
+        public bool IsRevisor { get => CurrentRevision.RevisorId == App.User.Id ? true : false; }
     }
 }

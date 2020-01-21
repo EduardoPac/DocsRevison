@@ -53,7 +53,7 @@ namespace DocsRevision.ViewModel
 
         private async void ItemSelected(Document obj)
         {
-            if(obj.CurrentRevision.Status != Enum.EStatus.Pending)
+            if(obj.CurrentRevision.RevisorId == App.User.Id)
             {
                 string[] options = new string[]
                     {
