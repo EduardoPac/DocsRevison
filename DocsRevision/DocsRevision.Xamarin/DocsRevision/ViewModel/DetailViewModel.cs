@@ -50,11 +50,13 @@ namespace DocsRevision.ViewModel
         private async void ReproveExecute()
         {
             await _apiService.ReproveDocument(DocumentDetail.Id);
+            await _navigationService.GoBackToRootAsync();
         }
 
         private async void AproveExecute()
         {
             await _apiService.AproveDocument(DocumentDetail.Id);
+            await _navigationService.GoBackToRootAsync();
         }
 
         private async void SendRevision()

@@ -12,7 +12,7 @@ using Prism.Services;
 
 namespace DocsRevision.ViewModel
 {
-    public class DocsViewModel : BaseViewModel, INavigationAware
+    public class DocsViewModel : BaseViewModel, INavigatedAware
     {
         private readonly IPageDialogService _dialogService;
         private readonly IApiService _apiService;
@@ -111,7 +111,6 @@ namespace DocsRevision.ViewModel
         private async void LoadData()
         {
             IsBusy = true;
-            Documents.Clear();
 
             var users = await _apiService.GetUsers();
             var documents = await _apiService.GetDocuments();

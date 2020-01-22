@@ -118,7 +118,6 @@ namespace DocsRevision.ViewModel
         private async void LoadData()
         {
             IsBusy = true;
-            DocumentsPend.Clear();
             
             var users = await _apiService.GetUsers();
             Users = users.Where(a => a.Id != App.User.Id).ToList();
