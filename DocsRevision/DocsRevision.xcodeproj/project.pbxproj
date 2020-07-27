@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33C47B423D48DC800A6592A /* PendentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C47B323D48DC800A6592A /* PendentViewController.swift */; };
 		A351341C238CA7F9004F87A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A351341B238CA7F9004F87A4 /* User.swift */; };
 		A351341E238CA948004F87A4 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A351341D238CA948004F87A4 /* Document.swift */; };
 		A3513420238CA964004F87A4 /* Revision.swift in Sources */ = {isa = PBXBuildFile; fileRef = A351341F238CA964004F87A4 /* Revision.swift */; };
@@ -16,9 +17,14 @@
 		A39E380723895BB500B5EC2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39E380523895BB500B5EC2B /* Main.storyboard */; };
 		A39E380923895BBA00B5EC2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A39E380823895BBA00B5EC2B /* Assets.xcassets */; };
 		A39E380C23895BBA00B5EC2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39E380A23895BBA00B5EC2B /* LaunchScreen.storyboard */; };
+		A3C039A823D478E70020FF37 /* DocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C039A723D478E70020FF37 /* DocsViewController.swift */; };
+		A3C039AA23D480E80020FF37 /* DocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C039A923D480E80020FF37 /* DocCell.swift */; };
+		A3C039AC23D481640020FF37 /* PendentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C039AB23D481640020FF37 /* PendentCell.swift */; };
+		A3C039AE23D4837F0020FF37 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C039AD23D4837F0020FF37 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A33C47B323D48DC800A6592A /* PendentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendentViewController.swift; sourceTree = "<group>"; };
 		A351341B238CA7F9004F87A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A351341D238CA948004F87A4 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		A351341F238CA964004F87A4 /* Revision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision.swift; sourceTree = "<group>"; };
@@ -30,6 +36,10 @@
 		A39E380823895BBA00B5EC2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A39E380B23895BBA00B5EC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A39E380D23895BBA00B5EC2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3C039A723D478E70020FF37 /* DocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsViewController.swift; sourceTree = "<group>"; };
+		A3C039A923D480E80020FF37 /* DocCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocCell.swift; sourceTree = "<group>"; };
+		A3C039AB23D481640020FF37 /* PendentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendentCell.swift; sourceTree = "<group>"; };
+		A3C039AD23D4837F0020FF37 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,11 @@
 				A39E380823895BBA00B5EC2B /* Assets.xcassets */,
 				A39E380A23895BBA00B5EC2B /* LaunchScreen.storyboard */,
 				A39E380D23895BBA00B5EC2B /* Info.plist */,
+				A3C039A723D478E70020FF37 /* DocsViewController.swift */,
+				A3C039A923D480E80020FF37 /* DocCell.swift */,
+				A3C039AB23D481640020FF37 /* PendentCell.swift */,
+				A3C039AD23D4837F0020FF37 /* DetailViewController.swift */,
+				A33C47B323D48DC800A6592A /* PendentViewController.swift */,
 			);
 			path = DocsRevision;
 			sourceTree = "<group>";
@@ -157,9 +172,14 @@
 			files = (
 				A351341C238CA7F9004F87A4 /* User.swift in Sources */,
 				A39E380423895BB500B5EC2B /* ViewController.swift in Sources */,
+				A3C039AC23D481640020FF37 /* PendentCell.swift in Sources */,
+				A3C039A823D478E70020FF37 /* DocsViewController.swift in Sources */,
 				A3513420238CA964004F87A4 /* Revision.swift in Sources */,
+				A33C47B423D48DC800A6592A /* PendentViewController.swift in Sources */,
 				A39E380023895BB500B5EC2B /* AppDelegate.swift in Sources */,
 				A39E380223895BB500B5EC2B /* SceneDelegate.swift in Sources */,
+				A3C039AE23D4837F0020FF37 /* DetailViewController.swift in Sources */,
+				A3C039AA23D480E80020FF37 /* DocCell.swift in Sources */,
 				A351341E238CA948004F87A4 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

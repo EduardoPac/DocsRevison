@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DocsRevision.Views.PendentPage"
+    Title="Pendentes"
+    xmlns:vm="clr-namespace:DocsRevision.ViewModel"
+    IconImageSource="pendent">
+    <ContentPage.Content>
+         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsBusy}">
+             <CollectionView
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="4"
+                    ItemsSource="{Binding DocumentsPend}"
+                    SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    Margin="4">
+                                    <Image
+                                        HeightRequest="60" 
+                                        Source="{Binding Extension}"
+                                        WidthRequest="60"
+                                        Margin="16,0"/>
+
+                                    <StackLayout
+                                        Orientation="Vertical"
+                                        HorizontalOptions="FillAndExpand"
+                                        Spacing="2">
+                                        <Label
+
+                                            TextColor="Black"
+                                            Text="{Binding NameFull}"/>
+
+                                        <Label
+                                            TextColor="Black"
+                                            Text="{Binding CreatorName}" />
+
+                                        <Label
+                                            TextColor="Black"
+                                            Text="{Binding RevisionFormated}"/>
+
+                                    </StackLayout>
+
+                                    <Image
+                                        HeightRequest="28" 
+                                        Source="Alert"
+                                        WidthRequest="28"
+                                        Margin="16,0"/>
+
+                                </StackLayout>
+                                <BoxView
+                                     BackgroundColor="LightGray"
+                                     HeightRequest="1"
+                                     HorizontalOptions="FillAndExpand"
+                                     Margin="16,0,0,0"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PendentViewModel}}, Path=ItemSelectedCommand}"
+                                        CommandParameter="{Binding .}"
+                                        NumberOfTapsRequired="1" />
+                                </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label
+                                HorizontalOptions="CenterAndExpand"
+                                Text="Não há documentos pendentes"
+                                TextColor="Black"
+                                VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                 </CollectionView>
+         </RefreshView>
+    </ContentPage.Content>
+</ContentPage>
